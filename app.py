@@ -24,7 +24,7 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-    response = "CON Welcome to account aggregation services \n"
+    response = "CON Welcome to account aggregation services by aryan \n"
     response += "Enter 1 to select desired language"
 
     #ussd_logic
