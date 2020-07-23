@@ -1,12 +1,19 @@
 from flask import Flask, request
 import africastalking
 import os
-
+import requests 
+URL_login_otpsend = "https://api-sandbox.onemoney.in/app/loginwithotp/send"
+Content_type = "application/json"
+organisationId = "FIN0176"
+client_id = "fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc"
+client_secret= "cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2"
+appIdentifier = "Consentmanage"
 app = Flask(__name__)
 username = "sandbox"
 api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
+aaid =""
 
 @app.route('/', methods=['POST', 'GET'])
 def ussd_callback():
@@ -63,9 +70,14 @@ def ussd_callback():
 
     elif text == "1*1*1*1":
         response = "CON कृपया अपना ए.ए. आईडी या फोन नंबर दर्ज करें\n"
-    elif text == "1*1*1*1*987654":
+        aaid = text.split('*')[-1]
+        URL_login_otpsend = "https://api-sandbox.onemoney.in/app/loginwithotp/send"
+        headers = {"Content_type":'application/json', 'organisationId' : 'FIN0176','client_id' : 'fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc','client_secret': 'cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2','appIdentifier' : 'Consentmanage'}
+        body = {"phone_number" : aaid}
+
+    elif text == "1*1*1*1*"+aaid:
         response = "CON कृपया पासकोड दर्ज करें \n"
-    elif text == "1*1*1*1*987654*123456":
+    elif text == "1*1*1*1*"+aaid+"*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n";
         response += "1. सहमति प्रबंधन\n";
