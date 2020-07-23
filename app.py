@@ -17,46 +17,70 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-
+    response = "CON Welcome to account aggregation services \n"
+    response += "Enter 1 to select desired language"
 
     #ussd_logic
-    if text == "":
+    if text == "1":
 
         #main menu
-        response = "CON What would you like to do?\n"
-        response += "1. Check account details\n"
-        response += "2. Check phone number\n"
-        response += "3. Send me a cool message"
+        response = "CON Select a language\n"
+        response += "1. हिन्दी \n" #hindi
+        response += "2. English\n" #english
+        response += "3. বাংলা \n" #bengali
+        response += "4. मराठी\n" #marathi
+        response += "5. తెలుగు\n" #telgu
+        response += "6. தமிழ்\n" #tamil
+        response += "7. પાસ\n" #gujrati
+        response += "8. اردو\n" #urdu
+        response += "9. ಕನ್ನಡ\n" #Kannada
+        response += "10.ଓଡିଆ\n" #odia
+        response += "11. മലയാളം\n" #malyalam
+        response += "12. ਪੰਜਾਬੀ\n" #punjabi
 
-    elif text =="1":
+    elif text =="1*1":
 
         #sub menu 1
-        response = "CON What would you like to check on your account?\n"
-        response += "1. Account number"
-        response += "2. Account balance"
+        response = "CON आपने अपनी पसंद की भाषा के रूप में हिंदी को चुना है\n"
+        response += "पुष्टि करने के लिए 1 दर्ज करें\n"
+        
 
-    elif text == "2":
+    elif text == "1*1*1":
         #sub menu 1
-        response = "END Your phone number is {}".format(phone_number)
+        response = "CON कृपया एक सेवा चुनें\n"
+        response += "1. लॉग इन करें \n"
+        response += "2. रजिस्टर करें\n"
 
-    elif text == "3":
-        try:
-            #sending the sms
-            sms_response = sms.send("Thank you for going through this tutorial", sms_phone_number)
-            print(sms_response)
-        except Exception as e:
-            #show us what went wrong
-            print(f"Houston, we have a problem: {e}")
+    elif text == "1*1*1*2":
+        response = "CON कृपया अपना फोन नंबर दर्ज करें\n"
+    
 
-    elif text == "1*1":
-        #ussd menus are split using *
-        account_number = "1243324376742"
-        response = "END Your account number is {}".format(account_number)
-    elif text == "1*2":
-        account_balance = "100,000"
-        response = "END Your account balance is USD {}".format(account_balance)
-    else:
-        response = "END Invalid input. Try again."
+    elif text == "1*1*1*2*8853056579":
+        response = "CON कृपया ओटीपी दर्ज करें\n"
+
+    elif text == "1*1*1*2*8853056579*369258":
+        response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
+
+    elif text == "1*1*1*1":
+        response = "CON कृपया अपना ए.ए. आईडी या फोन नंबर दर्ज करें\n"
+    elif text == "1*1*1*1*987654":
+        response = "CON कृपया पासकोड दर्ज करें \n"
+    elif text == "1*1*1*1*987654*123456":
+        response = "CON सफलतापूर्ण प्रवेश \n"
+        response += "कृपया एक सेवा चुनें \n";
+        response += "1. सहमति प्रबंधन\n";
+        response += "2. खाता प्रबंधन\n";
+    elif text == "1*1*1*1*987654*123456*1":
+       response = "CON आपके पास कोई सहमति अनुरोध नहीं है \n"
+
+    elif text == "1*1*1*1*987654*123456*2":
+       response = "CON आपने खाता प्रबंधन चुना है \n "
+       response += "पुष्टि करने के लिए 1 दर्ज करें \n"
+       
+    elif text == "1*1*1*1*987654*123456*2*1":
+     response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n "             
+        
+        
 
     return response
 
