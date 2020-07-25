@@ -79,14 +79,14 @@ def ussd_callback():
         otpref= apiresponse['otp_reference']
         text = "1*1*1*1*1"'''
 
-        
-    elif text == "1*1*1*1*1":
+    elif text == "1*1*1*1*1*1":
         response = "CON कृपया पासकोड दर्ज करें \n"
     elif text == "1*1*1*1*1*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n";
         response += "1. सहमति प्रबंधन\n";
         response += "2. खाता प्रबंधन\n";
+
     elif text == "1*1*1*1*1*123456*1":
         response = "CON आपके पास कोई सहमति अनुरोध नहीं है \n"
 
@@ -95,7 +95,7 @@ def ussd_callback():
         response += "पुष्टि करने के लिए 1 दर्ज करें \n"
 
     elif text == "1*1*1*1*1*123456*2*1":
-        response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n "             
+        response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n"             
         
         
 
