@@ -25,7 +25,7 @@ def ussd_callback():
     sms_phone_number = []
     sms_phone_number.append(phone_number)
     response = "CON Welcome to account aggregation services by aryan \n"
-    response += "Enter 1 to select desired language"
+    response += "Enter 1 to select desired language\n"
 
     #ussd_logic
     if text == "1":
@@ -75,8 +75,10 @@ def ussd_callback():
         body = {"phone_number" : phoneno}
         url_login_sendotp = requests.post('https://api-sandbox.onemoney.in/app/loginwithotp/send',data = body, headers=header)
         apiresponse = url_login_sendotp.json() 
-        otpref= apiresponse['otp_reference']'''
-        text = "1*1*1*1*1"
+        otpref= apiresponse['otp_reference']
+        text = "1*1*1*1*1"'''
+        response = "1"
+
         
     elif text == "1*1*1*1*1":
         response = "CON कृपया पासकोड दर्ज करें \n"
