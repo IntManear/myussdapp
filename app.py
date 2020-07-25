@@ -70,8 +70,8 @@ def ussd_callback():
 
     elif text == "1*1*1*1":
         response = "CON कृपया अपना ए.ए. आईडी या फोन नंबर दर्ज करें\n"
-        '''phoneno = text.split('*')[-1]
-        header = {"Content_type":'application/json', 'organisationId' : 'FIN0176','client_id' : 'fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc','client_secret': 'cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2','appIdentifier' : 'Consentmanage'}
+        phoneno = text.split('*')[-1]
+        '''header = {"Content_type":'application/json', 'organisationId' : 'FIN0176','client_id' : 'fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc','client_secret': 'cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2','appIdentifier' : 'Consentmanage'}
         body = {"phone_number" : phoneno}
         url_login_sendotp = requests.post('https://api-sandbox.onemoney.in/app/loginwithotp/send',data = body, headers=header)
         apiresponse = url_login_sendotp.json() 
