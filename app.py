@@ -13,7 +13,6 @@ username = "sandbox"
 api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
-phoneno =""
 
 @app.route('/', methods=['POST', 'GET'])
 def ussd_callback():
@@ -69,9 +68,11 @@ def ussd_callback():
         response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
 
     elif text == "1*1*1*1":
-        response = "CON कृपया अपना ए.ए. आईडी या फोन नंबर दर्ज करें\n"
-        phoneno = text.split('*')[-1]
-        '''header = {"Content_type":'application/json', 'organisationId' : 'FIN0176','client_id' : 'fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc','client_secret': 'cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2','appIdentifier' : 'Consentmanage'}
+        response = "CON अपना AA प्लेटफ़ॉर्म चुनें\n"
+        response += "1. Onemoney"
+        response += "2. Finvu"
+        '''phoneno = text.split('*')[-1]
+        header = {"Content_type":'application/json', 'organisationId' : 'FIN0176','client_id' : 'fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc','client_secret': 'cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2','appIdentifier' : 'Consentmanage'}
         body = {"phone_number" : phoneno}
         url_login_sendotp = requests.post('https://api-sandbox.onemoney.in/app/loginwithotp/send',data = body, headers=header)
         apiresponse = url_login_sendotp.json() 
