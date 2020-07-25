@@ -78,7 +78,7 @@ def ussd_callback():
         otpref= apiresponse['otp_reference']
         text = "1*1*1*1*1"
         
-    elif text == "1*1*1*1*1:
+    elif text == "1*1*1*1*1":
         response = "CON कृपया पासकोड दर्ज करें \n"
     elif text == "1*1*1*1*1*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
