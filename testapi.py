@@ -1,4 +1,5 @@
 import requests
+import json
 #comment
 url_session_init = "https://api-sandbox.onemoney.in/user/initsession"
 Content_type = "application/json"
@@ -12,8 +13,8 @@ header = {"Content_type":Content_type, 'organisationId' : organisationId,'client
 body = {"vua" : vua}
 
 request = requests.post('https://api-sandbox.onemoney.in/app/loginwithotp/send',data = body, headers=header)
-apiresponse = request.json()
+apiresponse = request.text
 
-session_id = apiresponse['sessionId']
+#session_id = apiresponse['sessionId']
 
-print(session_id)
+print(apiresponse)
