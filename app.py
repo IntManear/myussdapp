@@ -76,23 +76,24 @@ def ussd_callback():
         url_login_sendotp = requests.post('https://api-sandbox.onemoney.in/app/loginwithotp/send',data = body, headers=header)
         apiresponse = url_login_sendotp.json() 
         otpref= apiresponse['otp_reference']
+        text = "1*1*1*1*1"
         
-    elif text == "1*1*1*1*"+aaid:
+    elif text == "1*1*1*1*1:
         response = "CON कृपया पासकोड दर्ज करें \n"
-    elif text == "1*1*1*1*"+aaid+"*123456":
+    elif text == "1*1*1*1*1*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n";
         response += "1. सहमति प्रबंधन\n";
         response += "2. खाता प्रबंधन\n";
-    elif text == "1*1*1*1*987654*123456*1":
-       response = "CON आपके पास कोई सहमति अनुरोध नहीं है \n"
+    elif text == "1*1*1*1*1*123456*1":
+        response = "CON आपके पास कोई सहमति अनुरोध नहीं है \n"
 
-    elif text == "1*1*1*1*987654*123456*2":
-       response = "CON आपने खाता प्रबंधन चुना है \n "
-       response += "पुष्टि करने के लिए 1 दर्ज करें \n"
-       
-    elif text == "1*1*1*1*987654*123456*2*1":
-     response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n "             
+    elif text == "1*1*1*1*1*123456*2":
+        response = "CON आपने खाता प्रबंधन चुना है \n "
+        response += "पुष्टि करने के लिए 1 दर्ज करें \n"
+
+    elif text == "1*1*1*1*1*123456*2*1":
+        response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n "             
         
         
 
