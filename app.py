@@ -77,7 +77,6 @@ def ussd_callback():
         apiresponse = url_login_sendotp.json() 
         otpref= apiresponse['otp_reference']
         text = "1*1*1*1*1"'''
-        response = 1
 
         
     elif text == "1*1*1*1*1":
