@@ -98,9 +98,9 @@ def ussd_callback():
         header = {"Content-Type":Content_Type,"organisationId":organisationId, "client_id":client_id, "client_secret":client_secret, "appIdentifier":appIdentifier}
         body = '{"vua":"7016400304@onemoney"}'
 
-        request = requests.post(url_initiate_session, data = body, headers = header)
-        request_json = response.json()
-        print("Status code:", request.status_code)
+        request_api = requests.post(url_initiate_session, data = body, headers = header)
+        request_api_json = request_api.json()
+        print("Status code:", request_api.status_code)
         global aa_session_id
         aa_session_id =  request_json['sessionId']
     
