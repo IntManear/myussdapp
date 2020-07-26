@@ -23,7 +23,7 @@ api_key = "614937ce14783574598697ad6c87c0adb5b4d2aeb10cd60489b6f5b0ebd332b9"
 
 header = {"org_id":"chainaim","api_key":"614937ce14783574598697ad6c87c0adb5b4d2aeb10cd60489b6f5b0ebd332b9"}
 
-body = '{"profileId":"chainaim_gst_profile","userMobileOrHandle":"7016400304","txnId":"13ea597f-d31f-48a7-ad19-0d01eb5b83ct", "returnURL":"https://www.example.com"}'
+body = '{"profileId":"chainaim_gst_profile","userMobileOrHandle":"7016400304","txnId":"18ea597f-d31f-48a7-ad19-0d01eb5b83ct", "returnURL":"https://www.example.com"}'
 
 response = requests.post(url_initiate, data = body, headers = header)
 print("Status code:", response.status_code)
