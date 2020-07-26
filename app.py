@@ -99,10 +99,10 @@ def ussd_callback():
         body = '{"vua":"7016400304@onemoney"}'
 
         request_api = requests.post(url_initiate_session, data = body, headers = header)
-        request_api_json = request_api.json()
+        '''request_api_json = request_api.json()
         print("Status code:", request_api.status_code)
         global aa_session_id
-        aa_session_id =  request_json['sessionId']
+        aa_session_id =  request_json['sessionId']'''
     
     elif text == "1*1*1*1*1*123456*1*1":
         response = "CON Select consent request category:\n"
