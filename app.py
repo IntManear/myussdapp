@@ -14,6 +14,24 @@ api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
+def init_session():
+    url_initiate_session = "https://api-sandbox.onemoney.in/user/initsession"
+    Content_Type = "application/json"
+    organisationId = "FIN0176"
+    client_id = "fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc"
+    client_secret = "cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2"
+    appIdentifier = "Consentmanager"
+    header = {"Content-Type":Content_Type,"organisationId":organisationId, "client_id":client_id, "client_secret":client_secret, "appIdentifier":appIdentifier}
+    body = '{"vua":"7016400304@onemoney"}'
+
+    request_api = requests.post(url_initiate_session, data = body, headers = header)
+    '''request_api_json = request_api.json()
+        print("Status code:", request_api.status_code)
+        global aa_session_id
+        aa_session_id =  request_json['sessionId']'''
+    
+
+
 @app.route('/', methods=['POST', 'GET'])
 def ussd_callback():
     global response
@@ -89,21 +107,8 @@ def ussd_callback():
 
     elif text == "1*1*1*1*1*123456*1":
         response = "CON Session initialised.\n Press 1 to continue \n"
-        url_initiate_session = "https://api-sandbox.onemoney.in/user/initsession"
-        Content_Type = "application/json"
-        organisationId = "FIN0176"
-        client_id = "fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc"
-        client_secret = "cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2"
-        appIdentifier = "Consentmanager"
-        header = {"Content-Type":Content_Type,"organisationId":organisationId, "client_id":client_id, "client_secret":client_secret, "appIdentifier":appIdentifier}
-        body = '{"vua":"7016400304@onemoney"}'
-
-        request_api = requests.post(url_initiate_session, data = body, headers = header)
-        '''request_api_json = request_api.json()
-        print("Status code:", request_api.status_code)
-        global aa_session_id
-        aa_session_id =  request_json['sessionId']'''
-    
+        init_session()
+       
     elif text == "1*1*1*1*1*123456*1*1":
         response = "CON Select consent request category:\n"
         response += "1. Pending"
