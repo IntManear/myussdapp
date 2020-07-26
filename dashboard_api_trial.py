@@ -2,8 +2,8 @@ import requests
 
 url_dashboard = "https://api-sandbox.onemoney.in/app/dashboard"
 Content_Type = "application/json"
-PARAMS = {'Content_Type':'application/json','sessionId':"95029fc002b5b6ef87fe211844be2a26:d27398aa97a585699dadc3a9b8edf7c09af38a260a128943c61ea230167b81476cf186fac6e1ec7e2788420b3f621e54ddedd7e4f5068e9119b5f936b7e244ab"}
-request = requests.get(url = url_dashboard, params = PARAMS)
+header = {'Content_Type':'application/json','sessionId':'d26e3636c4557dde7c6ce97ba44ffe49:9069d62a3cec48ae16a5bff29a6f6a496d69b47885152a7f11e8ab358c8607ae563b77ebf66113512dadda471ed20b870187853b9720cffdb45924294cd00c38'}
+request = requests.get(url = url_dashboard, headers = header)
 request_json = request.text
 print(request_json)
 #print("Status code:", request.status_code)
