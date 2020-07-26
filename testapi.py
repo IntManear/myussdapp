@@ -16,12 +16,12 @@ import json
 # print("Status code: ", request.status_code)
 # apiresponse = request.json()
 
-url_initiate = 'https://demo-fiu.perfios.com/fiu/process/initiateRegistrationAndConsent'
+url_initiate = "https://demo-fiu.perfios.com/fiu/process/initiateRegistrationAndConsent"
 
-org_id = 'chainaim'
-api_key = '614937ce14783574598697ad6c87c0adb5b4d2aeb10cd60489b6f5b0ebd332b9'
+org_id = "chainaim"
+api_key = "614937ce14783574598697ad6c87c0adb5b4d2aeb10cd60489b6f5b0ebd332b9"
 
-header = {'org_id':org_id,'api_key':api_key}
+header = {"org_id":org_id,"api_key":api_key}
 
 body = {"profileId":"chainaim_gst_profile",
     "userMobileOrHandle":"7016400304",
