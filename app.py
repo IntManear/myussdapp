@@ -14,6 +14,7 @@ api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
+@app.route('/', methods=['POST', 'GET'])
 def init_session():
     url_initiate_session = "https://api-sandbox.onemoney.in/user/initsession"
     Content_Type = "application/json"
