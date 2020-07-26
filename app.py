@@ -98,10 +98,30 @@ def ussd_callback():
         header = {"Content-Type":Content_Type,"organisationId":organisationId, "client_id":client_id, "client_secret":client_secret, "appIdentifier":appIdentifier}
         body = '{"vua":"7016400304@onemoney"}'
 
-        response = requests.post(url_initiate_session, data = body, headers = header)
-        response_json = response.json()
+        request = requests.post(url_initiate_session, data = body, headers = header)
+        request_json = response.json()
+        print("Status code:", request.status_code)
+        global aa_session_id
+        aa_session_id =  request_json['sessionId']
+    
+    elif text == "1*1*1*1*1*123456*1*1":
+        response = "CON Select consent request category:\n"
+        response += "1. Pending"
+        response += "2. Active (under development)"
+        response += "3. Paused (under development)"
+        response += "4. Inactive (under development)"
+        response += "5. Rejected (under development)"
+
+    elif text == "1*1*1*1*1*123456*1*1*1":
+        response = "CON Pending consent requests:\n"
+        url_dashboard = "https://api-sandbox.onemoney.in/app/dashboard"
+        Content_Type = "application/json"
+        PARAMS = {'Content_Type':Content_Type, 'sessionId':aa_session_id}
+
+        request = requests.get(url = url_dashboard, params = PARAMS)
+        request_json = request.json()
         print("Status code:", response.status_code)
-        aa_session_id =  response_json['sessionId']
+        
 
     elif text == "1*1*1*1*1*123456*2":
         response = "CON आपने खाता प्रबंधन चुना है \n "
