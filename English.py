@@ -42,22 +42,22 @@ def ussd_callback():
     elif text =="1*1":
 
         #sub menu 1
-        response = "CON आपने अपनी पसंद की भाषा के रूप में हिंदी को चुना है\n"
-        response += "पुष्टि करने के लिए 1 दर्ज करें\n"
+        response = "CON You have selected English as your language\n"
+        response += "To confirm press 1\n"
         
 
     elif text == "1*1*1":
         #sub menu 1
-        response = "CON कृपया एक सेवा चुनें\n"
-        response += "1. लॉग इन करें \n"
-        response += "2. रजिस्टर करें\n"
+        response = "CON Select a service for Account Aggregation\n"
+        response += "1. Login\n"
+        response += "2. Register\n"
 
     elif text == "1*1*1*2":
-        response = "CON कृपया अपना फोन नंबर दर्ज करें\n"
+        response = "CON Please enter your phone number\n"
     
 
     elif text == "1*1*1*2*8853056579":
-        response = "CON कृपया ओटीपी दर्ज करें\n"
+        response = "CON Please enter the OTP\n"
 
     elif text == "1*1*1*2*8853056579*123456":
         response = "CON Please set a passcode\n"
@@ -77,40 +77,41 @@ def ussd_callback():
         response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
 
     elif text == "1*1*1*1*1*8853056579":
-        response = "CON कृपया पासकोड दर्ज करें \n"
+        response = "CON Please enter your passcode\n"
 
     elif text == "1*1*1*1*1*8853056579*123456":
-        response = "CON सफलतापूर्ण प्रवेश \n"
-        response += "कृपया एक सेवा चुनें \n"
-        response += "1. सहमति प्रबंधन\n"
-        response += "2. खाता प्रबंधन\n"
+        response = "CON Logged in.\n"
+        response += "Please select a service\n"
+        response += "1. Consent management\n"
+        response += "2. Account management\n"
 
     elif text == "1*1*1*1*1*8853056579*123456*1":
-        response = "CON कृपया एक क्रिया चुनें \n"
-        response += "1. लंबित सहमति का अनुरोध\n"#pending request
-        response += "2. सक्रिय सहमति सेवाएँ\n"#active consent
+        response = "CON Please select the consent category \n"
+        response += "1. Pending consent request\n"#pending request
+        response += "2. Active consent request\n"#active consent
         
     elif text == "1*1*1*1*1*8853056579*123456*1*1":
-        response = "CON एक सहमति अनुरोध चुनें\n"
+        response = "CON Please select a consent artifact\n"
         response += "1. _FIUid_\n (_date_ - _date_)\n"
         response += "2. _FIUid_\n (_date_ - _date_)\n"
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1":
-        response = "CON कंपनी: _FIUid_\n"
+        response = "CON FIU id: _FIUid_\n"
         response += "Period of data: (_date_ - _date_)\n"
         response += "Frequency: Once\n"
         response += "Data storage: View only\n"
-        response += "Account: ACME-FIP-X9950\n"
-        response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ\n"
+        response += "Account: ACME-FIP-X9950"
+        response += "To agree to the request, press 1.\n"
+        response += "To deny the request, press 0.\n"
         
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1*1":
-        response = "CON सहमति अनुरोध स्वीकृत \n "
-        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं"
+        response = "CON Consent request accepted\n "
+        response += "For more services, please dial in again."
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1*0":
-        response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
-        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं"
+        response = "CON Consent request declined\n"
+        response += "For more services, please dial in again."
 
         
         
