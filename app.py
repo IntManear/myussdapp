@@ -63,42 +63,48 @@ def ussd_callback():
         response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
 
     elif text == "1*1*1*1":
-        response = "CON कृपया अपना खाता एग्रीगेटर आईडी दर्ज करें\n"
+        response = "CON Select your account aggregator platform:\n"
+        response += "1. Onemoney\n"
+        response += "2. Finvu\n"
+        response += "3. Perfios\n"
+        response += "2. Yodlee\n"
         
+    elif text == "1*1*1*1*1":
+        response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
 
-    elif text == "1*1*1*1*8853056579@onemoney":
+    elif text == "1*1*1*1*1*8853056579":
         response = "CON कृपया पासकोड दर्ज करें \n"
-    elif text == "1*1*1*1*8853056579@onemoney*123456":
+
+    elif text == "1*1*1*1*1*8853056579*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n"
         response += "1. सहमति प्रबंधन\n"
         response += "2. खाता प्रबंधन\n"
 
-    elif text == "1*1*1*1*8853056579@onemoney*123456*1":
+    elif text == "1*1*1*1*1*8853056579*123456*1":
         response = "CON कृपया एक क्रिया चुनें \n"
         response += "1. लंबित सहमति का अनुरोध"#pending request
         response += "2. सक्रिय सहमति सेवाएँ"#active consent
         
-       
-    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1":
+    elif text == "1*1*1*1*1*8853056579*123456*1*1":
         response = "CON एक सहमति अनुरोध चुनें\n"
-        response += "1. _Company_"
+        response += "1. _FIUid_\n (_date_ - _date_)\n"
+        response += "2. _FIUid_\n (_date_ - _date_)\n"
 
-    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1":
-        response = "CON कंपनी: _Company_\n"
-        response += "_Data1_"
-        response += "_Data2_"
-        response += "_Data3_"
-        resposne += "_Data4_"
-        response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ "
-       
+    elif text == "1*1*1*1*1*8853056579*123456*1*1*1":
+        response = "CON कंपनी: _FIUid_\n"
+        resposne += "Period of data: (_date_ - _date_)\n"
+        response += "Frequency: Once\n"
+        response += "Data storage: View only\n"
+        response += "Account: ACME-FIP-X9950"
+        response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ\n"
         
 
-    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1*1":
+    elif text == "1*1*1*1*1*8853056579*123456*1*1*1*1":
         response = "CON सहमति अनुरोध स्वीकृत \n "
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
-    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1*2":
+    elif text == "1*1*1*1*1*8853056579*123456*1*1*1*2":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
