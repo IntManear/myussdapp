@@ -21,25 +21,25 @@ def ussd_callback():
     
 
     #ussd_logic
-    if text == "":
+
 
         #main menu
-        response = "CON Welcome to account aggregation services by team Chainaim \n"
-        response += "Select a language\n"
-        response += "1. हिन्दी \n" #hindi
-        response += "2. English\n" #english
-        response += "3. ગુજરાતી \n" #Gujrati
-        response += "4. मराठी\n" #marathi
-        response += "5. తెలుగు (comming soon)\n" #telugu
-        response += "6. தமிழ் (comming soon) \n" #tamil
-        response += "7. বাংলা (comming soon)\n" #Bengali
-        response += "8. اردو (comming soon)\n" #urdu
-        response += "9. ಕನ್ನಡ (comming soon)\n" #Kannada
-        response += "10.ଓଡିଆ (comming soon)\n" #odia
-        response += "11. മലയാളം (comming soon)\n" #malyalam
-        response += "12. ਪੰਜਾਬੀ (comming soon)\n" #punjabi
+    response = "CON Welcome to account aggregation services by team Chainaim \n"
+    response += "Select a language\n"
+    response += "1. हिन्दी \n" #hindi
+    response += "2. English\n" #english
+    response += "3. ગુજરાતી \n" #Gujrati
+    response += "4. मराठी\n" #marathi
+    response += "5. తెలుగు (comming soon)\n" #telugu
+    response += "6. தமிழ் (comming soon) \n" #tamil
+    response += "7. বাংলা (comming soon)\n" #Bengali
+    response += "8. اردو (comming soon)\n" #urdu
+    response += "9. ಕನ್ನಡ (comming soon)\n" #Kannada
+    response += "10.ଓଡିଆ (comming soon)\n" #odia
+    response += "11. മലയാളം (comming soon)\n" #malyalam
+    response += "12. ਪੰਜਾਬੀ (comming soon)\n" #punjabi
 
-    elif text =="1":
+    if text =="1":
 
         #sub menu 1
         response = "CON आपने अपनी पसंद की भाषा के रूप में हिंदी को चुना है\n"
@@ -107,7 +107,7 @@ def ussd_callback():
     elif text == "1*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
-    return response    
+    return response
 '''
     
     elif text == "2":
