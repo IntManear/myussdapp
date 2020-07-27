@@ -107,8 +107,8 @@ def ussd_callback():
     elif text == "1*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
-    return response
-'''
+    
+
     
     elif text == "2":
         response = "CON You have selected English as a language"
@@ -329,8 +329,9 @@ def ussd_callback():
     elif text == "4*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON संमती विनंती नाकारली\n"
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
+    return response    
 
-'''
+
     
 
 
