@@ -108,6 +108,73 @@ def ussd_callback():
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
+    elif text == "1*2*1":
+        #sub menu 1
+        response = "CON Select a service for Account Aggregation\n"
+        response += "1. Login\n"
+        response += "2. Register\n"
+
+    elif text == "1*2*1*2":
+        response = "CON Please enter your phone number\n"
+    
+
+    elif text == "1*2*1*2*8853056579":
+        response = "CON Please enter the OTP\n"
+
+    elif text == "1*2*1*2*8853056579*123456":
+        response = "CON Please set a passcode\n"
+
+    elif text == "1*2*1*2*8853056579*123456*123456":
+        response = "CON Passcode set.\n"
+        response += "CON Please login after some time.\n"
+
+    elif text == "1*2*1*1":
+        response = "CON Select your account aggregator platform:\n"
+        response += "1. Onemoney\n"
+        response += "2. Finvu\n"
+        response += "3. Perfios\n"
+        response += "2. Yodlee\n"
+        
+    elif text == "1*2*1*1*1":
+        response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
+
+    elif text == "1*2*1*1*1*8853056579":
+        response = "CON Please enter your passcode\n"
+
+    elif text == "1*2*1*1*1*8853056579*123456":
+        response = "CON Logged in.\n"
+        response += "Please select a service\n"
+        response += "1. Consent management\n"
+        response += "2. Account management\n"
+
+    elif text == "1*2*1*1*1*8853056579*123456*1":
+        response = "CON Please select the consent category \n"
+        response += "1. Pending consent request\n"#pending request
+        response += "2. Active consent request\n"#active consent
+        
+    elif text == "1*2*1*1*1*8853056579*123456*1*1":
+        response = "CON Please select a consent artifact\n"
+        response += "1. _FIUid_\n (_date_ - _date_)\n"
+        response += "2. _FIUid_\n (_date_ - _date_)\n"
+
+    elif text == "1*2*1*1*1*8853056579*123456*1*1*1":
+        response = "CON FIU id: _FIUid_\n"
+        response += "Period of data: (_date_ - _date_)\n"
+        response += "Frequency: Once\n"
+        response += "Data storage: View only\n"
+        response += "Account: ACME-FIP-X9950"
+        response += "To agree to the request, press 1.\n"
+        response += "To deny the request, press 0.\n"
+        
+
+    elif text == "1*2*1*1*1*8853056579*123456*1*1*1*1":
+        response = "CON Consent request accepted\n "
+        response += "For more services, please dial in again."
+
+    elif text == "1*2*1*1*1*8853056579*123456*1*1*1*0":
+        response = "CON Consent request declined\n"
+        response += "For more services, please dial in again."    
+
         
         
 
