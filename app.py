@@ -18,14 +18,14 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-    response = "CON Welcome to account aggregation services by team Chainaim \n"
-    response += "Enter 1 to select desired language\n"
+    
 
     #ussd_logic
-    if text == "1":
+    if text == "":
 
         #main menu
-        response = "CON Select a language\n"
+        response = "CON Welcome to account aggregation services by team Chainaim \n"
+        response += " Select a language\n"
         response += "1. हिन्दी \n" #hindi
         response += "2. English\n" #english
         response += "3. ગુજરાતી \n" #Gujrati
