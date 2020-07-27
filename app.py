@@ -18,7 +18,7 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-    response = "CON Welcome to account aggregation services\n"
+    response = "CON Welcome to account aggregation services by aryan \n"
     response += "Enter 1 to select desired language\n"
 
     #ussd_logic
@@ -59,22 +59,18 @@ def ussd_callback():
     elif text == "1*1*1*2*8853056579":
         response = "CON कृपया ओटीपी दर्ज करें\n"
 
-    elif text == "1*1*1*2*8853056579*123456":
-        response = "CON Please set a passcode\n"
-
-    elif text == "1*1*1*2*8853056579*123456*123456":
-        response = "CON Passcode set.\n"
-        response += "CON Please login after some time.\n"
+    elif text == "1*1*1*2*8853056579*369258":
+        response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
 
     elif text == "1*1*1*1":
-        response = "CON Select your account aggregator platform:\n"
+        response = "CON अपना खाता एग्रीगेटर प्लेटफ़ॉर्म चुनें:\n"
         response += "1. Onemoney\n"
         response += "2. Finvu\n"
         response += "3. Perfios\n"
         response += "2. Yodlee\n"
         
     elif text == "1*1*1*1*1":
-        response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
+        response = "CON कृपया अपना onemoney खाता एग्रीगेटर आई.डी. दर्ज करें (@onemoney को छोड़कर)\n"
 
     elif text == "1*1*1*1*1*8853056579":
         response = "CON कृपया पासकोड दर्ज करें \n"
@@ -97,20 +93,20 @@ def ussd_callback():
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1":
         response = "CON कंपनी: _FIUid_\n"
-        response += "Period of data: (_date_ - _date_)\n"
-        response += "Frequency: Once\n"
-        response += "Data storage: View only\n"
-        response += "Account: ACME-FIP-X9950\n"
+        response += "डेटा की अवधि: (_date_ - _date_)\n"
+        response += "आवृत्ति: Once\n"
+        response += "आधार सामग्री भंडारण: केवल देखने योग्य\n"
+        response += "खाता: ACME-FIP-X9950"
         response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ\n"
         
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1*1":
         response = "CON सहमति अनुरोध स्वीकृत \n "
-        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं"
+        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
-        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं"
+        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
         
         
