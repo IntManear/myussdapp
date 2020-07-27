@@ -19,7 +19,7 @@ def ussd_callback():
     sms_phone_number = []
     sms_phone_number.append(phone_number)
     response = "CON Welcome to account aggregation services by team Chainaim \n"
-    response += "Enter 1 to select desired language(भाषा/ભાષા/\n"
+    response += "Enter 1 to select desired language\n"
 
     #ussd_logic
     if text == "1":
