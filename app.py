@@ -93,7 +93,7 @@ def ussd_callback():
 
     elif text == "1*1*1*1*1*8853056579*123456*1*1*1":
         response = "CON कंपनी: _FIUid_\n"
-        resposne += "Period of data: (_date_ - _date_)\n"
+        response += "Period of data: (_date_ - _date_)\n"
         response += "Frequency: Once\n"
         response += "Data storage: View only\n"
         response += "Account: ACME-FIP-X9950"
