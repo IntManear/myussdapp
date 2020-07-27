@@ -63,42 +63,45 @@ def ussd_callback():
         response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
 
     elif text == "1*1*1*1":
-        response = "CON अपना AA प्लेटफ़ॉर्म चुनें\n"
-        response += "1. Onemoney"
-        response += "2. Finvu"
+        response = "CON कृपया अपना खाता एग्रीगेटर आईडी दर्ज करें\n"
         
 
-    elif text == "1*1*1*1*1":
+    elif text == "1*1*1*1*8853056579@onemoney":
         response = "CON कृपया पासकोड दर्ज करें \n"
-    elif text == "1*1*1*1*1*123456":
+    elif text == "1*1*1*1*8853056579@onemoney*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n"
         response += "1. सहमति प्रबंधन\n"
         response += "2. खाता प्रबंधन\n"
 
-    elif text == "1*1*1*1*1*123456*1":
-        response = "CON Session initialised.\n Press 1 to continue \n"
+    elif text == "1*1*1*1*8853056579@onemoney*123456*1":
+        response = "CON कृपया एक क्रिया चुनें \n"
+        response += "1. लंबित सहमति का अनुरोध"#pending request
+        response += "2. सक्रिय सहमति सेवाएँ"#active consent
         
        
-    elif text == "1*1*1*1*1*123456*1*1":
-        response = "CON Select consent request category:\n"
-        response += "1. Pending"
-        response += "2. Active (under development)"
-        response += "3. Paused (under development)"
-        response += "4. Inactive (under development)"
-        response += "5. Rejected (under development)"
+    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1":
+        response = "CON एक सहमति अनुरोध चुनें\n"
+        response += "1. _Company_"
 
-    elif text == "1*1*1*1*1*123456*1*1*1":
-        response = "CON Pending consent requests:\n"
+    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1":
+        response = "CON कंपनी: _Company_\n"
+        response += "_Data1_"
+        response += "_Data2_"
+        response += "_Data3_"
+        resposne += "_Data4_"
+        response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ "
        
         
 
-    elif text == "1*1*1*1*1*123456*2":
-        response = "CON आपने खाता प्रबंधन चुना है \n "
-        response += "पुष्टि करने के लिए 1 दर्ज करें \n"
+    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1*1":
+        response = "CON सहमति अनुरोध स्वीकृत \n "
+        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
-    elif text == "1*1*1*1*1*123456*2*1":
-        response = "CON खाते की खोज शुरू हो गई है। कृपया कुछ समय बाद सेवा में वापस आएं\n"             
+    elif text == "1*1*1*1*8853056579@onemoney*123456*1*1*1*2":
+        response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
+        response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
+
         
         
 
