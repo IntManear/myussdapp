@@ -2,21 +2,12 @@ from flask import Flask, request
 import africastalking
 import os
 import requests 
-url_login_sendotp= "https://api-sandbox.onemoney.in/app/loginwithotp/send"
-Content_type = "application/json"
-organisationId = "FIN0176"
-client_id = "fp_test_9c84a33600449fa0c572dff3bae82b0ce337e2cc"
-client_secret= "cbf4cb1a14be02885e0285d737bae683d4351be745cd5e19617ca6f584b4224035cbeeb2"
-appIdentifier = "Consentmanage"
+
 app = Flask(__name__)
 username = "sandbox"
 api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
-
-
-    
-
 
 @app.route('/', methods=['POST', 'GET'])
 def ussd_callback():
@@ -77,7 +68,7 @@ def ussd_callback():
         response += "2. Finvu"
         
 
-    elif text == "1*1*1*1*1*1":
+    elif text == "1*1*1*1*1":
         response = "CON कृपया पासकोड दर्ज करें \n"
     elif text == "1*1*1*1*1*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
@@ -99,13 +90,7 @@ def ussd_callback():
 
     elif text == "1*1*1*1*1*123456*1*1*1":
         response = "CON Pending consent requests:\n"
-        url_dashboard = "https://api-sandbox.onemoney.in/app/dashboard"
-        Content_Type = "application/json"
-        PARAMS = {'Content_Type':Content_Type, 'sessionId':aa_session_id}
-
-        request = requests.get(url = url_dashboard, params = PARAMS)
-        request_json = request.json()
-        print("Status code:", response.status_code)
+       
         
 
     elif text == "1*1*1*1*1*123456*2":
