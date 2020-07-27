@@ -28,11 +28,11 @@ def ussd_callback():
         response = "CON Select a language\n"
         response += "1. हिन्दी \n" #hindi
         response += "2. English\n" #english
-        response += "3. বাংলা \n" #bengali
+        response += "3. ગુજરાતી \n" #Gujrati
         response += "4. मराठी\n" #marathi
         response += "5. తెలుగు\n" #telgu
         response += "6. தமிழ்\n" #tamil
-        response += "7. પાસ\n" #gujrati
+        response += "7. বাংলা\n" #Bengali
         response += "8. اردو\n" #urdu
         response += "9. ಕನ್ನಡ\n" #Kannada
         response += "10.ଓଡିଆ\n" #odia
