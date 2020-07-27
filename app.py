@@ -248,6 +248,82 @@ def ussd_callback():
     elif text == "1*3*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON સંમતિ વિનંતી નકારી\n"
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
+
+    elif text =="1*4":
+
+        #sub menu 1
+        response = "CON आपण आपली भाषा मराठी निवडली आहे\n"
+        response += "पुष्टी करण्यासाठी 1 दाबा\n"
+        
+
+    elif text == "1*4*1":
+        #sub menu 1
+        response = "CON खाते एकत्रिकरणासाठी सेवा निवडा\n"
+        response += "1. लॉगिन\n"
+        response += "2. नोंदणी करा\n"
+
+    elif text == "1*4*1*2":
+        response = "CON कृपया आपला फोन नंबर प्रविष्ट करा\n"
+    
+
+    elif text == "1*4*1*2*8853056579":
+        response = "CON कृपया ओटीपी प्रविष्ट करा\n"
+
+    elif text == "1*4*1*2*8853056579*123456":
+        response = "CON कृपया पासकोड सेट करा\n"
+
+    elif text == "1*4*1*2*8853056579*123456*123456":
+        response = "CON पासकोड सेट.\n"
+        response += "CON कृपया काही काळानंतर लॉगिन करा.\n"
+
+    elif text == "1*4*1*1":
+        response = "CON आपले खाते एकत्रित प्लॅटफॉर्म निवडा:\n"
+        response += "1. Onemoney\n"
+        response += "2. Finvu\n"
+        response += "3. Perfios\n"
+        response += "4. Yodlee\n"
+        
+    elif text == "1*4*1*1*1":
+        response = "CON कृपया आपला एकमुनी एए आयडी प्रविष्ट करा( वगळता @onemoney):\n"
+
+    elif text == "1*4*1*1*1*8853056579":
+        response = "CON कृपया आपला पासकोड प्रविष्ट करा\n"
+
+    elif text == "1*4*1*1*1*8853056579*123456":
+        response = "CON लॉग इन\n"
+        response += "कृपया एक सेवा निवडा\n"
+        response += "1. संमती व्यवस्थापन\n"
+        response += "2. खाते व्यवस्थापन\n"
+
+    elif text == "1*4*1*1*1*8853056579*123456*1":
+        response = "CON कृपया संमती श्रेणी निवडा \n"
+        response += "1. प्रलंबित संमती विनंती\n"#pending request
+        response += "2. सक्रिय संमती विनंती\n"#active consent
+        
+    elif text == "1*4*1*1*1*8853056579*123456*1*1":
+        response = "CON कृपया एक संमती कृत्रिम वस्तू निवडा\n"
+        response += "1. _FIUid_\n (_date_ - _date_)\n"
+        response += "2. _FIUid_\n (_date_ - _date_)\n"
+
+    elif text == "1*4*1*1*1*8853056579*123456*1*1*1":
+        response = "CON एफआययू आयडी: _FIUid_\n"
+        response += "डेटा कालावधी: (_date_ - _date_)\n"
+        response += "वारंवारता: एकदा\n"
+        response += "डेटा संचयन: केवळ पहा\n"
+        response += "खाते: ACME-FIP-X9950"
+        response += "विनंतीस सहमती देण्यासाठी 1 दाबा.\n"
+        response += "विनंती नाकारण्यासाठी 0 दाबा.\n"
+        
+
+    elif text == "1*4*1*1*1*8853056579*123456*1*1*1*1":
+        response = "CON संमती विनंती स्वीकारली\n "
+        response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
+
+    elif text == "1*4*1*1*1*8853056579*123456*1*1*1*0":
+        response = "CON संमती विनंती नाकारली\n"
+        response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
+        
+            
     return response
 
 
