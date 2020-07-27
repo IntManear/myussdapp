@@ -18,8 +18,8 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-    response = "CON Welcome to account aggregation services by aryan \n"
-    response += "Enter 1 to select desired language\n"
+    response = "CON Welcome to account aggregation services by team Chainaim \n"
+    response += "Enter 1 to select desired language(भाषा/ભાષા/\n"
 
     #ussd_logic
     if text == "1":
@@ -30,14 +30,14 @@ def ussd_callback():
         response += "2. English\n" #english
         response += "3. ગુજરાતી \n" #Gujrati
         response += "4. मराठी\n" #marathi
-        response += "5. తెలుగు\n" #telgu
-        response += "6. தமிழ்\n" #tamil
-        response += "7. বাংলা\n" #Bengali
-        response += "8. اردو\n" #urdu
-        response += "9. ಕನ್ನಡ\n" #Kannada
-        response += "10.ଓଡିଆ\n" #odia
-        response += "11. മലയാളം\n" #malyalam
-        response += "12. ਪੰਜਾਬੀ\n" #punjabi
+        response += "5. తెలుగు (comming soon)\n" #telugu
+        response += "6. தமிழ் (comming soon) \n" #tamil
+        response += "7. বাংলা (comming soon)\n" #Bengali
+        response += "8. اردو (comming soon)\n" #urdu
+        response += "9. ಕನ್ನಡ (comming soon)\n" #Kannada
+        response += "10.ଓଡିଆ (comming soon)\n" #odia
+        response += "11. മലയാളം (comming soon)\n" #malyalam
+        response += "12. ਪੰਜਾਬੀ (comming soon)\n" #punjabi
 
     elif text =="1*1":
 
@@ -322,8 +322,8 @@ def ussd_callback():
     elif text == "1*4*1*1*1*8853056579*123456*1*1*1*0":
         response = "CON संमती विनंती नाकारली\n"
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
-        
-            
+
+
     return response
 
 
