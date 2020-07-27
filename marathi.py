@@ -32,7 +32,7 @@ def ussd_callback():
         response += "4. मराठी\n" #marathi
         response += "5. తెలుగు\n" #telgu
         response += "6. தமிழ்\n" #tamil
-        response += "7. પાસ\n" #gujrati
+        response += "7. ગુજરતી\n" #gujrati
         response += "8. اردو\n" #urdu
         response += "9. ಕನ್ನಡ\n" #Kannada
         response += "10.ଓଡିଆ\n" #odia
