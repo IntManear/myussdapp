@@ -79,33 +79,33 @@ def ussd_callback():
     elif text == "1*1*1*1*"+phno:
         response = "CON कृपया पासकोड दर्ज करें \n"
 
-    elif text == "1*1*1*1*8853056579*123456":
+    elif text == "1*1*1*1*"+phno+"*123456":
         response = "CON सफलतापूर्ण प्रवेश \n"
         response += "कृपया एक सेवा चुनें \n"
         response += "1. सहमति प्रबंधन\n"
         response += "2. खाता प्रबंधन\n"
 
-    elif text == "1*1*1*1*8853056579*123456*1":
+    elif text == "1*1*1*1*"+8853056579+"*123456*1":
         response = "CON कृपया एक क्रिया चुनें \n"
         response += "1. लंबित सहमति का अनुरोध\n"#pending request
         response += "2. सक्रिय सहमति सेवाएँ\n"#active consent
         
-    elif text == "1*1*1*1*8853056579*123456*1*1":
+    elif text == "1*1*1*1*"+8853056579+"*123456*1*1":
         response = "CON एक सहमति अनुरोध चुनें\n"
         response_json = user_dashboard(apisessionid)
         for i in len(response_json['consents']['pending']):
             response += response_json['consents']['pending'][0]["refFIUId"]
 
-    elif text == "1*1*1*1*8853056579*123456*1*1"+i:
+    elif text == "1*1*1*1*"+8853056579+"*123456*1*1"+i:
 
         for key in response_json['consents']['pending'][i]:
             response += key + "-->" + response_json['consents']['pending'][i][key]
 
-    elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*1":
+    elif text == "1*1*1*1*"+8853056579+"*123456*1*1*"+i+"*1":
         response = "CON सहमति अनुरोध स्वीकृत \n "
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
-    elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*0":
+    elif text == "1*1*1*1*"+8853056579+"*123456*1*1*"+i+"*0":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
     
@@ -153,34 +153,34 @@ def ussd_callback():
     elif text == "2*1*1*1*"+phno:
         response = "CON Please enter your passcode\n"
 
-    elif text == "2*1*1*1*8853056579*123456":
+    elif text == "2*1*1*1*"+phno+"*123456":
         response = "CON Logged in.\n"
         response += "Please select a service\n"
         response += "1. Consent management\n"
         response += "2. Account management\n"
 
-    elif text == "2*1*1*1*8853056579*123456*1":
+    elif text == "2*1*1*1*"+phno+"*123456*1":
         response = "CON Please select the consent category \n"
         response += "1. Pending consent request\n"#pending request
         response += "2. Active consent request\n"#active consent
         
-    elif text == "2*1*1*1*8853056579*123456*1*1":
+    elif text == "2*1*1*1*"+phno+"*123456*1*1":
         response = "CON Please select a consent artifact\n"
         response_json = user_dashboard(apisessionid)
         for i in len(response_json['consents']['pending']):
             response += response_json['consents']['pending'][0]["refFIUId"]
 
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*"+i:
+    elif text == "2*1*1*1*"+phno+"*123456*1*1*"+i:
         for key in response_json['consents']['pending'][i]:
             response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*1":
+    elif text == "2*1*1*1*"+phno+"*123456*1*1*"+i+"*1":
         response = "CON Consent request accepted\n "
         response += "For more services, please dial in again."
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*0":
+    elif text == "2*1*1*1*"+phno+"*123456*1*1*"+i+"*0":
         response = "CON Consent request declined\n"
         response += "For more services, please dial in again."    
 
@@ -228,34 +228,34 @@ def ussd_callback():
     elif text == "3*1*1*1*"+phno:
         response = "CON કૃપા કરીને તમારો પાસકોડ દાખલ કરો\n"
 
-    elif text == "3*1*1*1*8853056579*123456":
+    elif text == "3*1*1*1*"+phno+"*123456":
         response = "CON Logged in.\n"
         response += "કૃપા કરી કોઈ સેવા પસંદ કરો\n"
         response += "1. સંમતિ સંચાલન\n"
         response += "2. હિસાબી વય્વસ્થા\n"
 
-    elif text == "3*1*1*1*8853056579*123456*1":
+    elif text == "3*1*1*1*"+phno+"*123456*1":
         response = "CON કૃપા કરીને સંમતિ કેટેગરી પસંદ કરો\n"
         response += "1. બાકી સંમતિ વિનંતી\n"#pending request
         response += "2. સક્રિય સંમતિ વિનંતી\n"#active consent
         
-    elif text == "3*1*1*1*8853056579*123456*1*1":
+    elif text == "3*1*1*1*"+phno+"123456*1*1":
         response = "CON કૃપા કરીને સંમતિ આર્ટિફેક્ટ પસંદ કરો\n"
         response_json = user_dashboard(apisessionid)
         for i in len(response_json['consents']['pending']):
             response += response_json['consents']['pending'][0]["refFIUId"]
 
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*"+i:
+    elif text == "3*1*1*1*"+phno+"*123456*1*1*"+i:
         for key in response_json['consents']['pending'][i]:
             response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*1":
+    elif text == "3*1*1*1*"+phno+"*123456*1*1*"+i+"*1":
         response = "CON સંમતિ વિનંતી સ્વીકારી\n "
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*0":
+    elif text == "3*1*1*1*"+phno+"*123456*1*1*"+i+"*0":
         response = "CON સંમતિ વિનંતી નકારી\n"
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
@@ -303,34 +303,34 @@ def ussd_callback():
     elif text == "4*1*1*1*"+phno:
         response = "CON कृपया आपला पासकोड प्रविष्ट करा\n"
 
-    elif text == "4*1*1*1*8853056579*123456":
+    elif text == "4*1*1*1*"+phno+"*123456":
         response = "CON लॉग इन\n"
         response += "कृपया एक सेवा निवडा\n"
         response += "1. संमती व्यवस्थापन\n"
         response += "2. खाते व्यवस्थापन\n"
 
-    elif text == "4*1*1*1*8853056579*123456*1":
+    elif text == "4*1*1*1*"+phno+"*123456*1":
         response = "CON कृपया संमती श्रेणी निवडा \n"
         response += "1. प्रलंबित संमती विनंती\n"#pending request
         response += "2. सक्रिय संमती विनंती\n"#active consent
         
-    elif text == "4*1*1*1*8853056579*123456*1*1":
+    elif text == "4*1*1*1*"+phno+"*123456*1*1":
         response = "CON कृपया एक संमती कृत्रिम वस्तू निवडा\n"
         response_json = user_dashboard(apisessionid)
         for i in len(response_json['consents']['pending']):
             response += response_json['consents']['pending'][0]["refFIUId"]
 
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*"+i:
+    elif text == "4*1*1*1*"+phno+"*123456*1*1*"+i:
         for key in response_json['consents']['pending'][i]:
             response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*1":
+    elif text == "4*1*1*1*"+phno+"*123456*1*1*"+i+"*1":
         response = "CON संमती विनंती स्वीकारली\n "
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*0":
+    elif text == "4*1*1*1*"+phno+"*123456*1*1*"+i+"*0":
         response = "CON संमती विनंती नाकारली\n"
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
     return response    
