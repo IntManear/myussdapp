@@ -53,7 +53,9 @@ def ussd_callback():
         response += "2. रजिस्टर करें\n"
 
     elif text == "1*1*2":
-        response = "CON कृपया अपना फोन नंबर दर्ज करें\n"
+        response = "CON कृपया अपना नाम दर्ज करें\n"
+        rname= text.split('*')[-1]
+        apisessionid= initsession_reg(rname, phone_number, 'true' )
     
 
     elif text == "1*1*2*8853056579":
