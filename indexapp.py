@@ -102,10 +102,14 @@ def ussd_callback():
             response += key + "-->" + response_json['consents']['pending'][i][key]
 
     elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*1":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_approve(apisessionid,consent_handle)
         response = "CON सहमति अनुरोध स्वीकृत \n "
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
     elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*0":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_reject(apisessionid,consent_handle)
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
     
@@ -177,10 +181,14 @@ def ussd_callback():
         
 
     elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*1":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_approve(apisessionid,consent_handle)
         response = "CON Consent request accepted\n "
         response += "For more services, please dial in again."
 
     elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*0":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_reject(apisessionid,consent_handle)
         response = "CON Consent request declined\n"
         response += "For more services, please dial in again."    
 
@@ -252,10 +260,14 @@ def ussd_callback():
         
 
     elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*1":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_approve(apisessionid,consent_handle)
         response = "CON સંમતિ વિનંતી સ્વીકારી\n "
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
     elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*0":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_reject(apisessionid,consent_handle)
         response = "CON સંમતિ વિનંતી નકારી\n"
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
@@ -327,10 +339,14 @@ def ussd_callback():
         
 
     elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*1":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_approve(apisessionid,consent_handle)
         response = "CON संमती विनंती स्वीकारली\n "
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
 
     elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*0":
+        consent_handle = response_json['consents']['pending'][i]['consent_handle']
+        consent_reject(apisessionid,consent_handle)
         response = "CON संमती विनंती नाकारली\n"
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
     return response    
