@@ -19,7 +19,6 @@ def ussd_callback():
     text = request.values.get("text","default")
     sms_phone_number = []
     sms_phone_number.append(phone_number)
-    
 
     #ussd_logic
     #main menu
