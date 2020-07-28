@@ -58,10 +58,10 @@ def ussd_callback():
         apisessionid= initsession_reg(rname, phone_number, 'true' )
     
 
-    elif text == "1*1*2*8853056579":
+    elif text == "1*1*2*"+ phone_number:
         response = "CON कृपया ओटीपी दर्ज करें\n"
 
-    elif text == "1*1*2*8853056579*369258":
+    elif text == "1*1*2*"+phone_number+"*123456":
         response = "CON पंजीकरण सफल, कृपया कुछ मिनटों में लॉगिन करें\n"
 
     elif text == "1*1*1":
@@ -123,16 +123,18 @@ def ussd_callback():
         response += "2. Register\n"
 
     elif text == "2*1*2":
-        response = "CON Please enter your phone number\n"
+        response = "CON Please enter your name\n"
+        rname= text.split('*')[-1]
+        apisessionid= initsession_reg(rname, phone_number, 'true' )
     
 
-    elif text == "2*1*2*8853056579":
+    elif text == "2*1*2*"+phone_number:
         response = "CON Please enter the OTP\n"
 
-    elif text == "2*1*2*8853056579*123456":
+    elif text == "2*1*2*"+phone_number+"*123456":
         response = "CON Please set a passcode\n"
 
-    elif text == "2*1*2*8853056579*123456*123456":
+    elif text == "2*1*2*"+phone_number+"*123456*123456":
         response = "CON Passcode set.\n"
         response += "CON Please login after some time.\n"
 
@@ -196,16 +198,18 @@ def ussd_callback():
         response += "2. નોંધણી\n"
 
     elif text == "3*1*2":
-        response = "CON કૃપા કરીને તમારો ફોન નંબર દાખલ કરો\n"
+        response = "CON કૃપા કરી તમારું નામ દાખલ કરો\n"
+        rname= text.split('*')[-1]
+        apisessionid= initsession_reg(rname, phone_number, 'true' )
     
 
-    elif text == "3*1*2*8853056579":
+    elif text == "3*1*2*"+phone_number:
         response = "CON કૃપા કરીને ઓટીપી દાખલ કરો\n"
 
-    elif text == "3*1*2*8853056579*123456":
+    elif text == "3*1*2*"+phone_number+"*123456":
         response = "CON કૃપા કરીને પાસકોડ સેટ કરો\n"
 
-    elif text == "3*1*2*8853056579*123456*123456":
+    elif text == "3*1*2*"+phone_number+"*123456*123456":
         response = "CON પાસકોડ સેટ.\n"
         response += "CON કૃપા કરીને થોડા સમય પછી લગિન કરો.\n"
 
@@ -269,16 +273,18 @@ def ussd_callback():
         response += "2. नोंदणी करा\n"
 
     elif text == "4*1*2":
-        response = "CON कृपया आपला फोन नंबर प्रविष्ट करा\n"
+        response = "CON कृपया आपले नाव प्रविष्ट करा\n"
+        rname= text.split('*')[-1]
+        apisessionid= initsession_reg(rname, phone_number, 'true' )
     
 
-    elif text == "4*1*2*8853056579":
+    elif text == "4*1*2*"+phone_number:
         response = "CON कृपया ओटीपी प्रविष्ट करा\n"
 
-    elif text == "4*1*2*8853056579*123456":
+    elif text == "4*1*2*"+phone_number+"*123456":
         response = "CON कृपया पासकोड सेट करा\n"
 
-    elif text == "4*1*2*8853056579*123456*123456":
+    elif text == "4*1*2*"+phone_number+"*123456*123456":
         response = "CON पासकोड सेट.\n"
         response += "CON कृपया काही काळानंतर लॉगिन करा.\n"
 
