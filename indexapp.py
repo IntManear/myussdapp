@@ -90,24 +90,20 @@ def ussd_callback():
         
     elif text == "1*1*1*1*8853056579*123456*1*1":
         response = "CON एक सहमति अनुरोध चुनें\n"
-        json = user_dashboard(apisession_id)
-        response += "1. _FIUid_\n (_date_ - _date_)\n"
-        response += "2. _FIUid_\n (_date_ - _date_)\n"
+        response_json = user_dashboard(apisessionid)
+        for i in len(response_json['consents']['pending']):
+            response += response_json['consents']['pending'][0]["refFIUId"]
 
-    elif text == "1*1*1*1*8853056579*123456*1*1*1":
-        response = "CON कंपनी: _FIUid_\n"
-        response += "डेटा की अवधि: (_date_ - _date_)\n"
-        response += "आवृत्ति: Once\n"
-        response += "आधार सामग्री भंडारण: केवल देखने योग्य\n"
-        response += "खाता: ACME-FIP-X9950"
-        response += "अनुमोदन करने के लिए 1 दबाएँ और इनकार करने के लिए 0 दबाएँ\n"
-        
+    elif text == "1*1*1*1*8853056579*123456*1*1"+i:
 
-    elif text == "1*1*1*1*8853056579*123456*1*1*1*1":
+        for key in response_json['consents']['pending'][i]:
+            response += key + "-->" + response_json['consents']['pending'][i][key]
+
+    elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*1":
         response = "CON सहमति अनुरोध स्वीकृत \n "
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
 
-    elif text == "1*1*1*1*8853056579*123456*1*1*1*0":
+    elif text == "1*1*1*1*8853056579*123456*1*1*"+i+"*0":
         response = "CON सहमति अनुरोध अस्वीकार कर दिया\n"
         response += "अन्य सेवाओं के लिए कृपया कुछ समय बाद फिर से वापस आएं END "
     
@@ -166,24 +162,21 @@ def ussd_callback():
         
     elif text == "2*1*1*1*8853056579*123456*1*1":
         response = "CON Please select a consent artifact\n"
-        response += "1. _FIUid_\n (_date_ - _date_)\n"
-        response += "2. _FIUid_\n (_date_ - _date_)\n"
+        response_json = user_dashboard(apisessionid)
+        for i in len(response_json['consents']['pending']):
+            response += response_json['consents']['pending'][0]["refFIUId"]
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*1":
-        response = "CON FIU id: _FIUid_\n"
-        response += "Period of data: (_date_ - _date_)\n"
-        response += "Frequency: Once\n"
-        response += "Data storage: View only\n"
-        response += "Account: ACME-FIP-X9950"
-        response += "To agree to the request, press 1.\n"
-        response += "To deny the request, press 0.\n"
+
+    elif text == "2*1*1*1*8853056579*123456*1*1*"+i:
+        for key in response_json['consents']['pending'][i]:
+            response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*1*1":
+    elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*1":
         response = "CON Consent request accepted\n "
         response += "For more services, please dial in again."
 
-    elif text == "2*1*1*1*8853056579*123456*1*1*1*0":
+    elif text == "2*1*1*1*8853056579*123456*1*1*"+i+"*0":
         response = "CON Consent request declined\n"
         response += "For more services, please dial in again."    
 
@@ -242,24 +235,21 @@ def ussd_callback():
         
     elif text == "3*1*1*1*8853056579*123456*1*1":
         response = "CON કૃપા કરીને સંમતિ આર્ટિફેક્ટ પસંદ કરો\n"
-        response += "1. _FIUid_\n (_date_ - _date_)\n"
-        response += "2. _FIUid_\n (_date_ - _date_)\n"
+        response_json = user_dashboard(apisessionid)
+        for i in len(response_json['consents']['pending']):
+            response += response_json['consents']['pending'][0]["refFIUId"]
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*1":
-        response = "CON FIU id: _FIUid_\n"
-        response += "ડેટાની અવધિ: (_date_ - _date_)\n"
-        response += "આવર્તન: એકવાર\n"
-        response += "માહિતી સંગ્રાહક: ફક્ત જોવાયોગ્ય\n"
-        response += "ખાતું: ACME-FIP-X9950"
-        response += "વિનંતી સાથે સંમત થવા માટે, 1 દબાવો.\n"
-        response += "વિનંતીને નકારવા માટે, 0 દબાવો.\n"
+
+    elif text == "3*1*1*1*8853056579*123456*1*1*"+i:
+        for key in response_json['consents']['pending'][i]:
+            response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*1*1":
+    elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*1":
         response = "CON સંમતિ વિનંતી સ્વીકારી\n "
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
-    elif text == "3*1*1*1*8853056579*123456*1*1*1*0":
+    elif text == "3*1*1*1*8853056579*123456*1*1*"+i+"*0":
         response = "CON સંમતિ વિનંતી નકારી\n"
         response += "વધુ સેવાઓ માટે, કૃપા કરીને ફરીથી ડાયલ કરો."
 
@@ -318,24 +308,21 @@ def ussd_callback():
         
     elif text == "4*1*1*1*8853056579*123456*1*1":
         response = "CON कृपया एक संमती कृत्रिम वस्तू निवडा\n"
-        response += "1. _FIUid_\n (_date_ - _date_)\n"
-        response += "2. _FIUid_\n (_date_ - _date_)\n"
+        response_json = user_dashboard(apisessionid)
+        for i in len(response_json['consents']['pending']):
+            response += response_json['consents']['pending'][0]["refFIUId"]
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*1":
-        response = "CON एफआययू आयडी: _FIUid_\n"
-        response += "डेटा कालावधी: (_date_ - _date_)\n"
-        response += "वारंवारता: एकदा\n"
-        response += "डेटा संचयन: केवळ पहा\n"
-        response += "खाते: ACME-FIP-X9950"
-        response += "विनंतीस सहमती देण्यासाठी 1 दाबा.\n"
-        response += "विनंती नाकारण्यासाठी 0 दाबा.\n"
+
+    elif text == "4*1*1*1*8853056579*123456*1*1*"+i:
+        for key in response_json['consents']['pending'][i]:
+            response += key + "-->" + response_json['consents']['pending'][i][key]
         
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*1*1":
+    elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*1":
         response = "CON संमती विनंती स्वीकारली\n "
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
 
-    elif text == "4*1*1*1*8853056579*123456*1*1*1*0":
+    elif text == "4*1*1*1*8853056579*123456*1*1*"+i+"*0":
         response = "CON संमती विनंती नाकारली\n"
         response += "अधिक सेवांसाठी कृपया पुन्हा डायल करा."
     return response    
