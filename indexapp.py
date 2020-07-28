@@ -9,6 +9,8 @@ username = "sandbox"
 api_key = "0a94d47d47c2a97dedd2b973b40a5ce4291d27ca3587764443bd3b5fd6c960f3"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
+phno = 0
+apisessionid = ''
 
 @app.route('/', methods=['POST', 'GET'])
 def ussd_callback():
@@ -69,8 +71,8 @@ def ussd_callback():
         
     elif text == "1*1*1*1":
         response = "CON कृपया अपना onemoney खाता एग्रीगेटर आई.डी. दर्ज करें (@onemoney को छोड़कर)\n"
-        global phno= text.split('*')[-1]
-        global apisessionid= initsession(phno) 
+        phno = text.split('*')[-1]
+        apisessionid= initsession(phno) 
 
     elif text == "1*1*1*1*"+phno:
         response = "CON कृपया पासकोड दर्ज करें \n"
@@ -88,6 +90,7 @@ def ussd_callback():
         
     elif text == "1*1*1*1*8853056579*123456*1*1":
         response = "CON एक सहमति अनुरोध चुनें\n"
+        json = user_dashboard(apisession_id)
         response += "1. _FIUid_\n (_date_ - _date_)\n"
         response += "2. _FIUid_\n (_date_ - _date_)\n"
 
@@ -144,8 +147,8 @@ def ussd_callback():
         
     elif text == "2*1*1*1":
         response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
-        global phno= text.split('*')[-1]
-        global apisessionid= initsession(phno) 
+        phno = text.split('*')[-1]
+        apisessionid= initsession(phno) 
 
     elif text == "2*1*1*1*"+phno:
         response = "CON Please enter your passcode\n"
@@ -220,8 +223,8 @@ def ussd_callback():
         
     elif text == "3*1*1*1":
         response = "CON કૃપા કરી તમારી એકમાની એએ ID દાખલ કરો(બાકાત @onemoney):\n"
-        global phno= text.split('*')[-1]
-        global apisessionid= initsession(phno) 
+        phno = text.split('*')[-1]
+        apisessionid= initsession(phno) 
 
     elif text == "3*1*1*1*"+phno:
         response = "CON કૃપા કરીને તમારો પાસકોડ દાખલ કરો\n"
@@ -296,8 +299,8 @@ def ussd_callback():
         
     elif text == "4*1*1*1":
         response = "CON कृपया आपला एकमुनी एए आयडी प्रविष्ट करा( वगळता @onemoney):\n"
-        global phno= text.split('*')[-1]
-        global apisessionid= initsession(phno) 
+        phno = text.split('*')[-1]
+        apisessionid= initsession(phno) 
 
     elif text == "4*1*1*1*"+phno:
         response = "CON कृपया आपला पासकोड प्रविष्ट करा\n"
