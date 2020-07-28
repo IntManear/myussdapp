@@ -145,8 +145,10 @@ def ussd_callback():
         
     elif text == "2*1*1*1":
         response = "CON Please enter your onemoney AA id (excluding @onemoney):\n"
+        global phno= text.split('*')[-1]
+        global apisessionid= initsession(phno) 
 
-    elif text == "2*1*1*1*8853056579":
+    elif text == "2*1*1*1*"+phno:
         response = "CON Please enter your passcode\n"
 
     elif text == "2*1*1*1*8853056579*123456":
@@ -219,8 +221,10 @@ def ussd_callback():
         
     elif text == "3*1*1*1":
         response = "CON કૃપા કરી તમારી એકમાની એએ ID દાખલ કરો(બાકાત @onemoney):\n"
+        global phno= text.split('*')[-1]
+        global apisessionid= initsession(phno) 
 
-    elif text == "3*1*1*1*8853056579":
+    elif text == "3*1*1*1*"+phno:
         response = "CON કૃપા કરીને તમારો પાસકોડ દાખલ કરો\n"
 
     elif text == "3*1*1*1*8853056579*123456":
@@ -293,8 +297,10 @@ def ussd_callback():
         
     elif text == "4*1*1*1":
         response = "CON कृपया आपला एकमुनी एए आयडी प्रविष्ट करा( वगळता @onemoney):\n"
+        global phno= text.split('*')[-1]
+        global apisessionid= initsession(phno) 
 
-    elif text == "4*1*1*1*8853056579":
+    elif text == "4*1*1*1*"+phno:
         response = "CON कृपया आपला पासकोड प्रविष्ट करा\n"
 
     elif text == "4*1*1*1*8853056579*123456":
