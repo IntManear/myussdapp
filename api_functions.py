@@ -9,3 +9,11 @@ def initsession(vua):
     request_json = request.json()
     apisession_id=request_json["sessionId"]
     return apisession_id
+
+def user_dashboard(apisession_id):
+    url_dashboard = "https://api-sandbox.onemoney.in/app/dashboard"
+    Content_Type = "application/json"
+    header = {'Content_Type':'application/json','sessionId':apisession_id}
+    request = requests.get(url = url_dashboard, headers = header)
+    request_json = request.json()
+    return request_json

@@ -2,6 +2,7 @@ from flask import Flask, request
 import africastalking
 import os
 import requests 
+from api_functions import *
 
 app = Flask(__name__)
 username = "sandbox"
@@ -21,9 +22,7 @@ def ussd_callback():
     
 
     #ussd_logic
-
-
-        #main menu
+    #main menu
     response = "CON Welcome to account aggregation services by team Chainaim \n"
     response += "Select a language\n"
     response += "1. हिन्दी \n" #hindi
