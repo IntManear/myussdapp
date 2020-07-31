@@ -89,7 +89,6 @@ def ussd_callback():
     elif text == "1*1*1*1*7016400304*123456*1*1":
         response = "CON एक सहमति अनुरोध चुनें\n"
         response += "1. Vera Loans\n (01/01/2020-01/07/2020)\n"
-        response += "2. Vera Loans\n (01/01/2020-01/07/2020)\n"
 
     elif text == "1*1*1*1*7016400304*123456*1*1*1":
         response = "CON कंपनी: Vera Loans\n"
@@ -162,7 +161,6 @@ def ussd_callback():
     elif text == "2*1*1*1*7016400304*123456*1*1":
         response = "CON Please select a consent artifact\n"
         response += "1. Vera Loans\n (01/01/2020-01/07/2020)\n"
-        response += "2. Vera Loans\n (01/01/2020-01/07/2020)\n"
 
     elif text == "2*1*1*1*7016400304*123456*1*1*1":
         response = "CON FIU id: Vera Loans\n"
@@ -236,7 +234,6 @@ def ussd_callback():
     elif text == "3*1*1*1*7016400304*123456*1*1":
         response = "CON કૃપા કરીને સંમતિ આર્ટિફેક્ટ પસંદ કરો\n"
         response += "1. Vera Loans\n (01/01/2020-01/07/2020)\n"
-        response += "2. Vera Loans\n (01/01/2020-01/07/2020)\n"
 
     elif text == "3*1*1*1*7016400304*123456*1*1*1":
         response = "CON FIU id: Vera Loans\n"
@@ -310,7 +307,6 @@ def ussd_callback():
     elif text == "4*1*1*1*7016400304*123456*1*1":
         response = "CON कृपया एक संमती कृत्रिम वस्तू निवडा\n"
         response += "1. Vera Loans\n (01/01/2020-01/07/2020)\n"
-        response += "2. Vera Loans\n (01/01/2020-01/07/2020)\n"
 
     elif text == "4*1*1*1*7016400304*123456*1*1*1":
         response = "CON एफआययू आयडी: Vera Loans\n"
