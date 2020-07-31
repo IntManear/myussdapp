@@ -30,14 +30,14 @@ def ussd_callback():
     response += "2. English\n" #english
     response += "3. ગુજરાતી \n" #Gujrati
     response += "4. मराठी\n" #marathi
-    response += "5. తెలుగు (comming soon)\n" #telugu
-    response += "6. தமிழ் (comming soon) \n" #tamil
-    response += "7. বাংলা (comming soon)\n" #Bengali
-    response += "8. اردو (comming soon)\n" #urdu
-    response += "9. ಕನ್ನಡ (comming soon)\n" #Kannada
-    response += "10.ଓଡିଆ (comming soon)\n" #odia
-    response += "11. മലയാളം (comming soon)\n" #malyalam
-    response += "12. ਪੰਜਾਬੀ (comming soon)\n" #punjabi
+    response += "5. తెలుగు (coming soon)\n" #telugu
+    response += "6. தமிழ் (coming soon) \n" #tamil
+    response += "7. বাংলা (coming soon)\n" #Bengali
+    response += "8. اردو (coming soon)\n" #urdu
+    response += "9. ಕನ್ನಡ (coming soon)\n" #Kannada
+    response += "10.ଓଡିଆ (coming soon)\n" #odia
+    response += "11. മലയാളം (coming soon)\n" #malyalam
+    response += "12. ਪੰਜਾਬੀ (coming soon)\n" #punjabi
 
     if text =="1":
 
